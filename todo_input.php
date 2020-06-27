@@ -239,10 +239,10 @@ foreach ($result as $record) {
   <div class='txt_box'>{$record['comment']} </div>
 </div>";
 }
-
-
-
 ?>
+
+
+
 <div class="display">
   <div>【一覧はこちら】</div>
   <?= $output ?>
@@ -253,7 +253,7 @@ foreach ($result as $record) {
 </div>
 
 
-<!-- css直接かける -->
+
 <style>
   * {
     margin: 0;
