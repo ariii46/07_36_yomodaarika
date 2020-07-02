@@ -141,18 +141,9 @@
 
 
 <?php
-$dbn = 'mysql:dbname=06_36_yomodaarika;charset=utf8;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
+include('functions.php');
+$pdo = connect_to_db();
 
-try {
-  // ここでDB接続処理を実行する
-  $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-  // DB接続に失敗した場合はここでエラーを出力し，以降の処理を中止する
-  echo json_encode(["db error" => "{$e->getMessage()}"]);
-  exit();
-}
 
 // 全部のカラムを取ってくる
 $sql = 'SELECT * FROM evaluation_table';
@@ -225,12 +216,12 @@ foreach ($result as $record) {
     $convenience = "★★★★★";
   }
 
-  // $output .= "<li><span>{$record["shop_name"]}</span><span>{$record["ambiance"]}</span>
-  // <span>{$recordfacility"]}</span><span>{$record["convenience"]}</span><span>{$record["comment"]}</span></li>";
-  // var_dump($record["ambiance"]);
+
 
   $output .= "<div class='item'>
   <div class='name'><span>{$shop_name}</span></div>
+  <div><a href='todo_edit.php?id={$record["id"]}'>修正</a></div>
+  <div><a href='todo_delete.php?id={$record["id"]}'>削除</a></div>
   <ul>
     <li>雰囲気:<span>{$ambiance}</span></li>
     <li>設備:<span>{$facility}</span></li>
@@ -315,7 +306,7 @@ foreach ($result as $record) {
     white-space: pre-wrap;
   }
 
-  .footer{
+  .footer {
     text-align: center;
     text-decoration: none;
     font-size: 18px;
