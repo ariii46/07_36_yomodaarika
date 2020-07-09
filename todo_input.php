@@ -30,6 +30,8 @@
       <a href="">questionary</a>
       <p class="drawr_content_text">- お問い合わせ</p>
       <a href="">contact</a>
+      <p class="drawr_content_text">- ログアウト</p>
+      <a href="todo_logout.php">logout</a>
     </div>
 
   </header>
